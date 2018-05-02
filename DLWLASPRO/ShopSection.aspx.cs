@@ -26,7 +26,7 @@ namespace DLWLASPRO
         }
         private void _LoadGrid()
         {
-            grdshopSection.DataSource = getMasterRecords.GetViewShopSection();
+            grdshopSection.DataSource = getMasterRecords.GetViewShopSection("IsDeactive in (0,1) and");
             grdshopSection.DataBind();
         }
         private void _ShopName()
@@ -89,7 +89,7 @@ namespace DLWLASPRO
                 if (e.Row.RowType == DataControlRowType.DataRow)
                 {
                     DropDownList ddlShop = (e.Row.FindControl("ddlShop") as DropDownList);
-                    ddlShop.DataSource = getMasterRecords.GetViewShopSection();
+                    ddlShop.DataSource = getMasterRecords.GetViewShopSection("IsDeactive in (0,1) and");
                     ddlShop.DataTextField = "ShopName";
                     ddlShop.DataValueField = "ShopCode";
                     ddlShop.DataBind();

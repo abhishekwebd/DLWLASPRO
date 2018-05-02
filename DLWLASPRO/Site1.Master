@@ -70,7 +70,7 @@
         <!--header-->
         <div class="container-fluid">
             <!--documents-->
-            <div class="row row-offcanvas row-offcanvas-left" style="min-height: 800px;">
+            <div class="row row-offcanvas row-offcanvas-left " id="leftsidebar" style="min-height: 800px;">
                 <div class="col-xs-6 col-sm-3 sidebar-offcanvas" role="navigation">
                     <ul class="list-group panel">
                         <li class="list-group-item"><i class="glyphicon glyphicon-align-justify"></i><b>SIDE PANEL</b></li>
@@ -219,6 +219,10 @@
     </form>
     <script>
         $(".checkbox>tbody>tr>td").css("padding", "6px");
+        $("ul>li>a").click(function () {
+            $("ul>li>a").css("background-color", "transparent");
+            $(this).css("background-color", "aquamarine");
+        });
     </script>
 </body>
 </html>

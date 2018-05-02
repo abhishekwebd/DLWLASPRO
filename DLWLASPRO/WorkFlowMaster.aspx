@@ -23,6 +23,19 @@
                         </div>
                         <div class="panel-body">
                             <div class="form-group">
+                                <label for="exampleInputEmail1">Select Loco Category</label>
+                                <asp:DropDownList ID="ddlLocoCategory" CssClass="form-control" runat="server">
+                                    <asp:ListItem disabled Selected="True">--Select Loco Category--</asp:ListItem>
+                                    <asp:ListItem Value="0">Diesel</asp:ListItem>
+                                    <asp:ListItem Value="1">Electric</asp:ListItem>
+                                </asp:DropDownList>
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleInputPassword1">Shop Name</label>
+                                <asp:DropDownList ID="ddlShopName" AppendDataBoundItems="true" CssClass="form-control" runat="server"></asp:DropDownList>
+                            </div>
+
+                            <div class="form-group">
                                 <label for="exampleInputPassword1">Serial Number</label>
                                 <input type="text" class="form-control" id="txtSrno" runat="server" placeholder="Enter Serial Number" />
                             </div>
@@ -30,22 +43,12 @@
                                 <label for="exampleInputPassword1">Head Name</label>
                                 <input type="text" class="form-control" id="txtHeadName" runat="server" placeholder="Enter Head Name" />
                             </div>
-                            <div class="form-group">
-                                <label for="exampleInputPassword1">Shop Name</label>
-                                <asp:DropDownList ID="ddlShopName" AppendDataBoundItems="true" CssClass="form-control" runat="server"></asp:DropDownList>
-                            </div>
+
                             <div class="form-group">
                                 <label for="exampleInputPassword1">Priority</label>
                                 <input type="text" class="form-control" id="txtPriority" runat="server" placeholder="Enter Priority" />
                             </div>
-                            <div class="form-group">
-                                <label for="exampleInputEmail1">Select Loco Category</label>
-                                <asp:DropDownList ID="ddlLocoCategory" CssClass="form-control" runat="server">
-                                    <asp:ListItem disabled Selected="True">Select Loco Category</asp:ListItem>
-                                    <asp:ListItem Value="0">Diesel</asp:ListItem>
-                                    <asp:ListItem Value="1">Electric</asp:ListItem>
-                                </asp:DropDownList>
-                            </div>
+
                             <button type="submit" class="btn btn-info" onserverclick="btnSubmit_ServerClick" runat="server" id="btnSubmit">Submit</button>
                             <br />
                             <asp:Label ID="txtalert" runat="server"></asp:Label>
@@ -74,7 +77,7 @@
                                 <asp:BoundField HeaderText="Priority" DataField="priority" HeaderStyle-CssClass="text-center" />
                                 <asp:TemplateField HeaderText="LocoCategory" HeaderStyle-CssClass="text-center">
                                     <ItemTemplate>
-                                         <asp:HiddenField runat="server" ID="lblLocoCategory" Value='<%# Eval("LocoCategory")%>' />
+                                        <asp:HiddenField runat="server" ID="lblLocoCategory" Value='<%# Eval("LocoCategory")%>' />
                                         <asp:DropDownList ID="ddlLocoCategory" runat="server">
                                             <asp:ListItem Value="0">Diesel</asp:ListItem>
                                             <asp:ListItem Value="1">Electric</asp:ListItem>

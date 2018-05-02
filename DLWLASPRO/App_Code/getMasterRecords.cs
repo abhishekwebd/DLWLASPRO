@@ -35,6 +35,10 @@ namespace DLWLASPRO.App_Code
         {
             return SqlHelper.ExecuteDataset(dbConnect.getConstr(), CommandType.Text, "select Code,Name,Shopid,IsDeactive from tblShopSection where " + isdeactive + " IsDelete =0").Tables[0];
         }
+        public static DataTable GetShopSection()
+        {
+            return SqlHelper.ExecuteDataset(dbConnect.getConstr(), CommandType.Text, "select TblShopSection.Code,(tblShopSection.Name+'/'+tblShopMaster.ShopNo) as Name,tblShopSection.IsDeactive from tblShopSection  inner join  tblShopMaster  on TblShopSection.ShopId = tblShopMaster.Code  where TblShopSection.IsDeactive =0 and TblShopSection.IsDelete = 0").Tables[0];
+        }
 
         public static DataTable GetShopMaster(string isdeactive)
         {
@@ -45,9 +49,13 @@ namespace DLWLASPRO.App_Code
         {
             return SqlHelper.ExecuteDataset(dbConnect.getConstr(), CommandType.Text, "select * from tblWorkFlowMaster where " + isdeactive + " IsDelete =0").Tables[0];
         }
-        public static DataTable GetViewShopSection()
+        public static DataTable GetWorkFlow(string isdeactive)
         {
-            return SqlHelper.ExecuteDataset(dbConnect.getConstr(), CommandType.Text, "SELECT  dbo.tblShopMaster.Name AS ShopName, dbo.TblShopSection.Name, dbo.TblShopSection.IsDeactive, dbo.TblShopSection.IsDelete, dbo.tblShopMaster.Code AS ShopCode, dbo.TblShopSection.Code FROM   dbo.TblShopSection INNER JOIN  dbo.tblShopMaster ON dbo.TblShopSection.ShopId = dbo.tblShopMaster.Code ").Tables[0];
+            return SqlHelper.ExecuteDataset(dbConnect.getConstr(), CommandType.Text, "SELECT     dbo.tblShopMaster.ShopNo, dbo.tblWorkFlowMaster.SrNo, dbo.tblWorkFlowMaster.Shopid, dbo.tblWorkFlowMaster.LocoCategory, dbo.tblWorkFlowMaster.Head, dbo.tblWorkFlowMaster.priority, dbo.tblWorkFlowMaster.IsDeactive, dbo.tblWorkFlowMaster.IsDelete, dbo.tblShopMaster.Name, dbo.tblWorkFlowMaster.Code FROM dbo.tblShopMaster INNER JOIN dbo.tblWorkFlowMaster ON dbo.tblShopMaster.Code = dbo.tblWorkFlowMaster.Shopid WHERE dbo.tblWorkFlowMaster.IsDelete=0 ORDER BY SrNo").Tables[0];
+        }
+        public static DataTable GetViewShopSection(string isdeactive)
+        {
+            return SqlHelper.ExecuteDataset(dbConnect.getConstr(), CommandType.Text, "SELECT  dbo.tblShopMaster.Name AS ShopName, dbo.TblShopSection.Name, dbo.TblShopSection.IsDeactive, dbo.TblShopSection.IsDelete, dbo.tblShopMaster.Code AS ShopCode, dbo.TblShopSection.Code FROM   dbo.TblShopSection INNER JOIN  dbo.tblShopMaster ON dbo.TblShopSection.ShopId = dbo.tblShopMaster.Code WHERE dbo.TblShopSection.IsDelete=0 ").Tables[0];
         }
         public static DataTable GetWorkFlow()
         {

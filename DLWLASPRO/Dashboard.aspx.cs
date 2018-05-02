@@ -16,9 +16,15 @@ namespace DLWLASPRO
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (Request.QueryString["code"] == "1")
+             ABRack_Mgmt.Visible = true;
+
+            if (Request.QueryString["code"] == "2")
+                CAB_Mgmt.Visible = true;
+            
             if (!IsPostBack)
             {
-                DataList1.DataSource = command.ExecuteQuery("select * from tblLocoMaster where IsDelete = 0");
+                DataList1.DataSource = command.ExecuteQuery("select * from tblLocoMaster where IsDelete = 0 and IsDeactive =0");
                 DataList1.DataBind();
             }
         }
@@ -26,9 +32,15 @@ namespace DLWLASPRO
         protected void DataList1_ItemDataBound(object sender, DataListItemEventArgs e)
         {
             int id = Convert.ToInt32(DataList1.DataKeys[e.Item.ItemIndex].ToString());
-            DataList DataList2 = (DataList)e.Item.FindControl("DataList2");
-            DataList2.DataSource = command.ExecuteQuery("select * from tblWorkFlowMaster where  LocoCategory="+id+" and IsDelete = 0");
-            DataList2.DataBind();
+            DataTable dt = SqlHelper.ExecuteDataset(dbConnect.getConstr(), CommandType.Text, "select LocoCategory,LastShopid from tblLocoMaster where Code ="+id).Tables[0];
+            if (dt.Rows.Count > 0)
+            {
+                DataList DataList2 = (DataList)e.Item.FindControl("DataList2");
+                DataList2.DataSource = command.ExecuteQuery("select tblWorkFlowMaster.Code,Head,LocoNo,tblLocoMaster.CreateDate from tblWorkFlowMaster inner join tblLocoMaster on tblLocoMaster.LocoCategory = tblWorkFlowMaster.LocoCategory and tblLocoMaster.LastShopId = tblWorkFlowMaster.Shopid where tblLocoMaster.Code = " + id + " and tblWorkFlowMaster.IsDelete = 0 order by srno");
+                DataList2.DataBind();
+            }
+       
+
         }
     }
 }
