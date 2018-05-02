@@ -19,6 +19,7 @@
     <IISExpressAnonymousAuthentication />
     <IISExpressWindowsAuthentication />
     <IISExpressUseClassicPipelineMode />
+    <WcfConfigValidationEnabled>True</WcfConfigValidationEnabled>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -51,6 +52,8 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>bin\MyCrypt.dll</HintPath>
     </Reference>
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -134,6 +137,8 @@
     <Content Include="PermissionMaster.aspx" />
     <Content Include="ShopMaster.aspx" />
     <Content Include="ShopSection.aspx" />
+    <Content Include="UserControls\ABRack_Mgmt.ascx" />
+    <Content Include="UserControls\CAB_Mgmt.ascx" />
     <Content Include="UserControls\CreateAdmin.ascx" />
     <Content Include="UserControls\CreateOperator.ascx" />
     <Content Include="vendor\animate\animate.css" />
@@ -166,6 +171,7 @@
     <Content Include="vendor\select2\select2.js" />
     <Content Include="vendor\select2\select2.min.css" />
     <Content Include="vendor\select2\select2.min.js" />
+    <Content Include="WCFS\wcf_CreateOperator.svc" />
     <Content Include="Web.config" />
     <Content Include="WorkFlowMaster.aspx" />
   </ItemGroup>
@@ -260,6 +266,20 @@
     <Compile Include="Site1.Master.designer.cs">
       <DependentUpon>Site1.Master</DependentUpon>
     </Compile>
+    <Compile Include="UserControls\ABRack_Mgmt.ascx.cs">
+      <DependentUpon>ABRack_Mgmt.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControls\ABRack_Mgmt.ascx.designer.cs">
+      <DependentUpon>ABRack_Mgmt.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\CAB_Mgmt.ascx.cs">
+      <DependentUpon>CAB_Mgmt.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControls\CAB_Mgmt.ascx.designer.cs">
+      <DependentUpon>CAB_Mgmt.ascx</DependentUpon>
+    </Compile>
     <Compile Include="UserControls\CreateAdmin.ascx.cs">
       <DependentUpon>CreateAdmin.ascx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -273,6 +293,10 @@
     </Compile>
     <Compile Include="UserControls\CreateOperator.ascx.designer.cs">
       <DependentUpon>CreateOperator.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="WCFS\Iwcf_CreateOperator.cs" />
+    <Compile Include="WCFS\wcf_CreateOperator.svc.cs">
+      <DependentUpon>wcf_CreateOperator.svc</DependentUpon>
     </Compile>
     <Compile Include="WorkFlowMaster.aspx.cs">
       <DependentUpon>WorkFlowMaster.aspx</DependentUpon>
@@ -357,6 +381,7 @@
     <Content Include="vendor\bootstrap\css\bootstrap-reboot.min.css.map" />
     <Content Include="vendor\bootstrap\css\bootstrap.css.map" />
     <Content Include="vendor\bootstrap\css\bootstrap.min.css.map" />
+    <None Include="Properties\PublishProfiles\LAS.pubxml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -377,9 +402,9 @@
         <WebProjectProperties>
           <UseIIS>True</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
-          <DevelopmentServerPort>0</DevelopmentServerPort>
+          <DevelopmentServerPort>3725</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://localhost:2954/</IISUrl>
+          <IISUrl>http://localhost:3725/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>

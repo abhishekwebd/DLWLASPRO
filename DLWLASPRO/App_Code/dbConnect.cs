@@ -21,13 +21,15 @@ namespace DLWLASPRO.App_Code
         }
         public static String getConstr()
         {
-            return "Data Source = AJAY\\SQLEXPRESS2008;Initial Catalog=DLWLOCODB;User id=admin;Password=''";
+            return "Data Source = Sqlplesk4.securehostdns.com,1533;Initial Catalog=dlwlocodb;User id=dlwloco;Password='A1b2c3d4e5-*/'";
+            //return "Data Source = AJAY\\SQLEXPRESS2008;Initial Catalog=DLWLOCODB;User id=admin;Password=''";
         }
 
         public static SqlConnection getCn()
         {
             EncDcr enc = new EncDcr();
-            SqlConnection cn = enc.Connection("AJAY\\SQLEXPRESS2008", "DLWLOCODB", "admin", "");
+            SqlConnection cn = enc.Connection("Sqlplesk4.securehostdns.com,1533", "dlwlocodb", "dlwloco", "A1b2c3d4e5-*/");
+            //SqlConnection cn = enc.Connection("AJAY\\SQLEXPRESS2008", "DLWLOCODB", "admin", "");
             cn.Open();
             return cn;
         }

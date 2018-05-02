@@ -7,55 +7,73 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace DLWLASPRO {
+namespace DLWLASPRO.UserControls {
     
     
-    public partial class WorkFlowMaster {
+    public partial class ABRack_Mgmt {
         
         /// <summary>
-        /// ddlLocoCategory control.
+        /// lblLocono control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlLocoCategory;
+        protected global::System.Web.UI.WebControls.Label lblLocono;
         
         /// <summary>
-        /// ddlShopName control.
+        /// CalendarExtender1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlShopName;
+        protected global::AjaxControlToolkit.CalendarExtender CalendarExtender1;
         
         /// <summary>
-        /// txtSrno control.
+        /// txtDateofFitment control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText txtSrno;
+        protected global::System.Web.UI.WebControls.TextBox txtDateofFitment;
         
         /// <summary>
-        /// txtHeadName control.
+        /// txtShopNo control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText txtHeadName;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText txtShopNo;
         
         /// <summary>
-        /// txtPriority control.
+        /// txtShortname control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText txtPriority;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText txtShortname;
+        
+        /// <summary>
+        /// ddlSection control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList ddlSection;
+        
+        /// <summary>
+        /// Text2 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputText Text2;
         
         /// <summary>
         /// btnSubmit control.
@@ -74,14 +92,5 @@ namespace DLWLASPRO {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label txtalert;
-        
-        /// <summary>
-        /// grdWorkFlow control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView grdWorkFlow;
     }
 }

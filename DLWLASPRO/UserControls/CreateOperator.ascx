@@ -106,7 +106,9 @@
                         </div>
                         <div class="panel-body">
                             <asp:CheckBoxList ID="chkWorkFlowList" runat="server" CssClass="checkbox"></asp:CheckBoxList>
-                        </div>
+                       
+                            <asp:GridView ID="GridView1" runat="server"></asp:GridView>
+                             </div>
                       </div>
 
                         </div>
