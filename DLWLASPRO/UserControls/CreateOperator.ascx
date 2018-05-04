@@ -1,5 +1,8 @@
 ﻿<%@ Control Language="C#" AutoEventWireup="true" CodeBehind="CreateOperator.ascx.cs" Inherits="DLWLASPRO.UserControls.CreateOperator" %>
+<%@ Register Src="~/UserControls/Popup.ascx" TagPrefix="uc1" TagName="Popup" %>
+
 <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
+
 <div class="content-row">
     <div class="panel panel-default">
         <div class="panel-heading">
@@ -18,6 +21,7 @@
             <ContentTemplate>
         <div class="panel-body">
             <div role="form">
+               
                 <div class="form-group ">
                     <div class="row">
                           <div class="col-md-6 pull-left">
@@ -28,8 +32,7 @@
                         <div class="col-md-8 pull-right">
                           
                                 <asp:TextBox ID="txtFullName" class="form-control" runat="server"></asp:TextBox>
-                            <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ErrorMessage="Full Name Required" ControlToValidate="txtFullName"></asp:RequiredFieldValidator>
-                        </div>
+                          </div>
                                 </div></div>
                         
                            <div class="col-md-6 pull-left">
@@ -39,8 +42,7 @@
                                 </div>
                                 <div class="col-md-8 pull-right">
                                     <asp:TextBox ID="txtUsername" placeholder="Username" CssClass="form-control" runat="server"></asp:TextBox>
-                                    <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ErrorMessage="Username Required" ControlToValidate="txtUsername"></asp:RequiredFieldValidator>  
-
+                                  
                                 </div>
                             </div>
                         </div>
@@ -60,8 +62,7 @@
                                 </div>
                                 <div class="col-md-8 pull-right">
                                     <asp:TextBox ID="txtPassword" runat="server" CssClass="form-control" TextMode="Password" placeholder="Password"></asp:TextBox>
-                              <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ErrorMessage="Password Required" ControlToValidate="txtPassword"></asp:RequiredFieldValidator>  
-
+                              
                                        </div>
                             </div>
                             <div class="row">
@@ -70,7 +71,6 @@
                                 </div>
                                 <div class="col-md-8 pull-right">
                                     <asp:TextBox ID="txtEmpNo" runat="server" CssClass="form-control" placeholder="Employee No"></asp:TextBox>
-                                    <asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" ErrorMessage="Employee No Required" ControlToValidate="txtEmpNo"></asp:RequiredFieldValidator>
                                      </div>
                             </div>
                                      <div class="row">
@@ -81,8 +81,7 @@
                                     <asp:DropDownList ID="ddlShop" OnSelectedIndexChanged="ddlShop_SelectedIndexChanged"  AutoPostBack="true" AppendDataBoundItems="true" CssClass="form-control" runat="server">
                                    <asp:ListItem disabled Value="Select Shop">Select Shop </asp:ListItem>
                                     </asp:DropDownList>
-                                    <asp:RequiredFieldValidator ID="RequiredFieldValidator5" InitialValue="Select Shop" runat="server" ErrorMessage="Shop Selection Required" ControlToValidate="ddlShop"></asp:RequiredFieldValidator>
-                                </div>
+                                      </div>
                             </div>
                                <div class="row">
                                 <div class="col-md-4 pull-left">
@@ -95,7 +94,7 @@
                                 </div>
                             </div>
                      
-
+                          
                                        <button type="submit" class="btn btn-primary pull-right" runat="server" id="btnSubmit" onserverclick="btnSubmit_ServerClick">Save</button>
                         </div>
 
@@ -107,7 +106,7 @@
                         <div class="panel-body">
                             <asp:CheckBoxList ID="chkWorkFlowList" runat="server" CssClass="checkbox"></asp:CheckBoxList>
                        
-                            <asp:GridView ID="GridView1" runat="server"></asp:GridView>
+                         
                              </div>
                       </div>
 
@@ -118,6 +117,7 @@
 
                 <br />
                 <asp:Label ID="txtalert" runat="server"></asp:Label>
+               
             </div>
         </div>
             </ContentTemplate>

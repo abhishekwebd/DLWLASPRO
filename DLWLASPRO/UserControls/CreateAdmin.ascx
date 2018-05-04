@@ -100,9 +100,8 @@
                                             <asp:CheckBox ID="chkCanCreateAdmin" CssClass="checkbox" Text="Can Create Admin" runat="server" />
                                         </div>
                                         <div class="col-md-6 pull-right">
-                                        
-                                             <button type="submit" class="btn btn-primary pull-right" runat="server" id="btnSubmit" onserverclick="btnSubmit_ServerClick">Save</button>
-                               
+                                                            
+                    <button type="submit" class="btn btn-primary pull-right" runat="server" id="btnSubmit" onserverclick="btnSubmit_ServerClick">Save</button>
                                         </div>
 
                                     </div>

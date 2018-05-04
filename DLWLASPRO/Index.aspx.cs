@@ -38,6 +38,8 @@ namespace DLWLASPRO
                         userCookie["Code"] = ds.Tables[0].Rows[0]["Code"].ToString();
                         userCookie["UserCategory"] = ds.Tables[0].Rows[0]["UserCategory"].ToString();
                         userCookie["Name"] = ds.Tables[0].Rows[0]["Name"].ToString();
+                        userCookie["errorStat"] = "";
+                        userCookie["errorMsg"] = "";
                         userCookie.Expires = DateTime.UtcNow.AddDays(1);
                         Response.Cookies.Add(userCookie);
                         Response.Redirect("Dashboard.aspx", false);

@@ -19,6 +19,8 @@ namespace DLWLASPRO.UserControls
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+       
+
             if (!IsPostBack)
             {
                 ddlShop.DataSource = getMasterRecords.GetShopMaster("IsDeactive = 0 and");
@@ -105,63 +107,80 @@ namespace DLWLASPRO.UserControls
         {
             try
             {
-                
-                string WorkFlowList = "";
-                foreach (ListItem item in chkWorkFlowList.Items)
-                    if (item.Selected)
-                        WorkFlowList += item.Value+"|";
-
-
-                WorkFlowList = WorkFlowList.Remove(WorkFlowList.Length - 1);
-                HttpCookie cookie = Request.Cookies["userCookie"];
-                WCFS.UserDetails cu = new WCFS.UserDetails();
-                cu.TransType = 'I';
-                cu.UserName = txtUsername.Text;
-                cu.Fullname = txtFullName.Text;
-                cu.Empno = txtEmpNo.Text;
-                cu.Password = txtPassword.Text;
-                cu.Shopid = int.Parse(ddlShop.SelectedValue);
-                cu.WorkFlowList = WorkFlowList;
-                cu.IsDeactive = 0;
-                cu.Code = 0;
-                cu.User = cookie["Name"].ToString(); 
-
-                if (chkDiesel.Checked == true && chkElectric.Checked == true)
+                if (txtEmpNo.Text.Trim() == "" || txtFullName.Text == "" || txtPassword.Text == "" || txtUsername.Text == "" || ddlShop.SelectedValue == "")
                 {
-                    cu.LocoCategory = "Diesel | Electric";
-                }
-                else if (chkDiesel.Checked == true)
-                {
-                    cu.LocoCategory = "Diesel | 0";
-                }
-                else if (chkElectric.Checked == true)
-                {
-                    cu.LocoCategory = "0 | Electric";
+                    MyAlert("warning", "All Fields are Mendatory");
                 }
                 else
                 {
-                    txtalert.Text = "LocoCategory Selection Required";
-                }
+                    string WorkFlowList = "";
+                    foreach (ListItem item in chkWorkFlowList.Items)
+                        if (item.Selected)
+                            WorkFlowList += item.Value + "|";
 
 
-                DataTable dt = new DataTable();
-                WCFS.wcf_CreateOperator createUser = new WCFS.wcf_CreateOperator();
-                dt = createUser.InsertUserDetails(cu);
-                if (dt.Rows.Count > 0)
-                {
-                    txtalert.Text = dt.Rows[0][1].ToString();
-                    if (dt.Rows[0][0].ToString() == "1")
-                        txtalert.CssClass = "alert alert-success pull-right";
+                    WorkFlowList = WorkFlowList.Remove(WorkFlowList.Length - 1);
+                    HttpCookie cookie = Request.Cookies["userCookie"];
+                    WCFS.UserDetails cu = new WCFS.UserDetails();
+                    cu.TransType = 'I';
+                    cu.UserName = txtUsername.Text;
+                    cu.Fullname = txtFullName.Text;
+                    cu.Empno = txtEmpNo.Text;
+                    cu.Password =enc.Encrypt(txtPassword.Text);
+                    cu.Shopid = int.Parse(ddlShop.SelectedValue);
+                    cu.WorkFlowList = WorkFlowList;
+                    cu.UserCategory = 1;
+                    cu.IsDeactive = 0;
+                    cu.Code = 0;
+                    cu.User = cookie["Name"].ToString();
+
+                    if (chkDiesel.Checked == true && chkElectric.Checked == true)
+                    {
+                        cu.LocoCategory = "Diesel | Electric";
+                    }
+                    else if (chkDiesel.Checked == true)
+                    {
+                        cu.LocoCategory = "Diesel | 0";
+                    }
+                    else if (chkElectric.Checked == true)
+                    {
+                        cu.LocoCategory = "0 | Electric";
+                    }
                     else
-                        txtalert.CssClass = "alert alert-danger pull-right";
+                    {
+                        MyAlert("warning", "LocoCategory Selection Required");
+                      
+                    }
+
+
+                    DataTable dt = new DataTable();
+                    WCFS.wcf_CreateOperator createUser = new WCFS.wcf_CreateOperator();
+                    dt = createUser.InsertUserDetails(cu);
+                    if (dt.Rows.Count > 0)
+                    {
+                        if (dt.Rows[0][0].ToString() == "1")
+                            MyAlert("success", dt.Rows[0][1].ToString());
+                        else
+                            MyAlert("error", dt.Rows[0][1].ToString());
+                    }
                 }
+               
 
             }
             catch (Exception ex)
-            {
-                txtalert.Text = ex.Message;
+             {
+                 MyAlert("error", ex.Message);
             }
         }
 
+        private void MyAlert(string stat, string Msg)
+        {
+            HttpCookie cookie = Request.Cookies["userCookie"];
+            cookie["errorStat"] = stat;
+            cookie["errorMsg"] = Msg;
+            Response.Cookies.Add(cookie);
+            Response.Redirect(Request.RawUrl, false);
+        }
+     
     }
 }

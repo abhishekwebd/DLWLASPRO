@@ -2,12 +2,16 @@
 
 <%@ Register Src="~/UserControls/CreateAdmin.ascx" TagPrefix="uc1" TagName="CreateAdmin" %>
 <%@ Register Src="~/UserControls/CreateOperator.ascx" TagPrefix="uc1" TagName="CreateOperator" %>
+<%@ Register Src="~/UserControls/Popup.ascx" TagPrefix="uc1" TagName="Popup" %>
+
 
 
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+
+    <uc1:Popup runat="server" ID="Popup" />
     <div class="col-xs-12 col-sm-9 content">
         <div class="panel panel-default">
             <div class="panel-heading">

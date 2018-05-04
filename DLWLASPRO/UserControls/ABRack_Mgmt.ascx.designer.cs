@@ -13,15 +13,6 @@ namespace DLWLASPRO.UserControls {
     public partial class ABRack_Mgmt {
         
         /// <summary>
-        /// lblLocono control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblLocono;
-        
-        /// <summary>
         /// CalendarExtender1 control.
         /// </summary>
         /// <remarks>
