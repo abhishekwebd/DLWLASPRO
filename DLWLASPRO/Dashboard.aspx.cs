@@ -14,8 +14,15 @@ namespace DLWLASPRO
 {
     public partial class Dashboard : System.Web.UI.Page
     {
+        int dieselcount, electriccount = 0;
         protected void Page_Load(object sender, EventArgs e)
         {
+            try
+            {
+                lblLocono2.Text = Request.QueryString["LocoNo"].ToString();
+            }
+            catch (Exception eX) { }
+
             if (Request.QueryString["code"] == "1")
              ABRack_Mgmt.Visible = true;
 
@@ -35,12 +42,20 @@ namespace DLWLASPRO
             DataTable dt = SqlHelper.ExecuteDataset(dbConnect.getConstr(), CommandType.Text, "select LocoCategory,LastShopid from tblLocoMaster where Code ="+id).Tables[0];
             if (dt.Rows.Count > 0)
             {
+                if (dt.Rows[0]["LocoCategory"].ToString() == "0")
+                dieselcount += 1;
+
+                if (dt.Rows[0]["LocoCategory"].ToString() == "1")
+                    electriccount += 1;
+
+
                 DataList DataList2 = (DataList)e.Item.FindControl("DataList2");
                 DataList2.DataSource = command.ExecuteQuery("select tblWorkFlowMaster.Code,Head,LocoNo,tblLocoMaster.CreateDate from tblWorkFlowMaster inner join tblLocoMaster on tblLocoMaster.LocoCategory = tblWorkFlowMaster.LocoCategory and tblLocoMaster.LastShopId = tblWorkFlowMaster.Shopid where tblLocoMaster.Code = " + id + " and tblWorkFlowMaster.IsDelete = 0 order by srno");
                 DataList2.DataBind();
             }
-       
 
+            Label12.Text = dieselcount.ToString();
+            Label22.Text = electriccount.ToString();
         }
     }
 }

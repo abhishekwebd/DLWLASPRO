@@ -46,7 +46,7 @@ namespace DLWLASPRO
         {
             try
             {
-                Fn_WorkFlowMaster("I", 0, int.Parse(txtSrno.Value), int.Parse(ddlShopName.SelectedValue), txtHeadName.Value, int.Parse(txtPriority.Value), int.Parse(ddlLocoCategory.SelectedValue), 0);
+                Fn_WorkFlowMaster("I", 0, int.Parse(txtSrno.Value), int.Parse(ddlShopName.SelectedValue), txtHeadName.Value.ToUpper(), int.Parse(txtPriority.Value), int.Parse(ddlLocoCategory.SelectedValue), 0);
                 _loadGrid();
                 txtSrno.Value = "";
                 txtHeadName.Value = "";
@@ -125,7 +125,7 @@ namespace DLWLASPRO
                 HiddenField code = (HiddenField)row.Cells[0].FindControl("Code");
                 CheckBox chk = (CheckBox)row.Cells[0].FindControl("chkDeactive");
                 if (chk.Checked == true) { isd = 1; } else { isd = 0; }
-                Fn_WorkFlowMaster("U", int.Parse(code.Value), int.Parse(Srno), int.Parse(ShopName.SelectedValue), Head, int.Parse(priorty), int.Parse(LocoCategory.SelectedValue), isd);
+                Fn_WorkFlowMaster("U", int.Parse(code.Value), int.Parse(Srno), int.Parse(ShopName.SelectedValue), Head.ToUpper(), int.Parse(priorty), int.Parse(LocoCategory.SelectedValue), isd);
                 grdWorkFlow.EditIndex = -1;
                 _loadGrid();
             }

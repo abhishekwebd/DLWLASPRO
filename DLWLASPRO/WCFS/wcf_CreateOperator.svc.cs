@@ -18,7 +18,7 @@ namespace DLWLASPRO.WCFS
         public DataTable InsertUserDetails(UserDetails userInfo)
         {
             EncDcr enc = new EncDcr();
-            DataTable dataTable = SqlHelper.ExecuteDataset(dbConnect.getConstr(), "SP_USERMGMT", userInfo.TransType, userInfo.Code, userInfo.Shopid, userInfo.UserName, userInfo.Password, userInfo.Empno, userInfo.Fullname, 1, userInfo.LocoCategory, userInfo.WorkFlowList, userInfo.IsDeactive, userInfo.User, enc.GetIPAddress(), enc.GetHostName()).Tables[0];
+            DataTable dataTable = SqlHelper.ExecuteDataset(dbConnect.getConstr(), "SP_USERMGMT", userInfo.TransType, userInfo.Code, userInfo.Shopid, userInfo.UserName, userInfo.Password, userInfo.Empno, userInfo.Fullname, userInfo.UserCategory, userInfo.LocoCategory, userInfo.WorkFlowList, userInfo.IsDeactive, userInfo.User, enc.GetIPAddress(), enc.GetHostName()).Tables[0];
             return dataTable;
 
         }

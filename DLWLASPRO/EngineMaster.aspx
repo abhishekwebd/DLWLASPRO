@@ -57,7 +57,7 @@
                                 </asp:TemplateField>
                                 <asp:TemplateField HeaderText="Control System" HeaderStyle-CssClass="text-center">
                                     <ItemTemplate>
-                                        <asp:LinkButton ID="LinkButton1" Text="Update/Delete" runat="server" CommandName="Edit" CssClass="btn btn-warning" />
+                                        <asp:LinkButton ID="LinkButton1" Text="Update/Delete" runat="server" CommandName="Edit" />
                                     </ItemTemplate>
                                     <EditItemTemplate>
                                         <asp:LinkButton ID="LinkButton2" Text="Update" OnClick="OnUpdate" runat="server" CssClass="btn btn-success" />

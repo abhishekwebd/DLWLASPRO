@@ -13,7 +13,7 @@
                         <div class="panel-title ">
                            CAB
 
-                              <asp:Label runat="server" ID="lblLocono" Font-Bold="true" CssClass="pull-right "></asp:Label>
+                          
                            
                         </div>
                       

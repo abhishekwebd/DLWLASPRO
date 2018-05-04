@@ -7,6 +7,7 @@
         <%--<div class="panel-heading">
             <h3 class="panel-title"><a href="javascript:void(0);" class="toggle-sidebar"><span class="fa fa-angle-double-left" data-toggle="offcanvas" title="Maximize Panel"></span></a><i class="glyphicon glyphicon-list-alt"></i>Shop Master</h3>
         </div>--%>
+         
         <div class="panel-body" style="padding:0px;">
             <div class="content-row">
                 <div class="panel panel-primary">
@@ -14,7 +15,7 @@
                         <div class="panel-title">
                         AB Rack
 
-                                 <asp:Label runat="server" ID="lblLocono" Font-Bold="true" CssClass="pull-right "></asp:Label>
+                                
                            
                         </div>
                         <div class="panel-options">

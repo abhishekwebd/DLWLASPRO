@@ -16,11 +16,7 @@ namespace DLWLASPRO.UserControls
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            try
-            {
-                lblLocono.Text = Request.QueryString["LocoNo"].ToString();
-            }
-            catch (Exception eX) { }
+         
             if (!IsPostBack)
             {
                 ddlSection.DataSource = getMasterRecords.GetShopSection();

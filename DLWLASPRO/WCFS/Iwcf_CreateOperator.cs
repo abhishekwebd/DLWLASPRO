@@ -31,6 +31,8 @@ namespace DLWLASPRO.WCFS
 
         int shopid = 0;
 
+        int usercategory = 0;
+
         string WorkFlowXml;
 
         char transtype;
@@ -40,7 +42,7 @@ namespace DLWLASPRO.WCFS
         int code;
 
         string user;
-
+        
 
 
         [DataMember]
@@ -51,6 +53,16 @@ namespace DLWLASPRO.WCFS
             get { return user; }
 
             set { user = value; }
+
+        }
+
+        [DataMember]
+        public int UserCategory
+        {
+
+            get { return usercategory; }
+
+            set { usercategory = value; }
 
         }
 

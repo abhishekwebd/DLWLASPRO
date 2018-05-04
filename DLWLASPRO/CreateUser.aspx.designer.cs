@@ -13,6 +13,15 @@ namespace DLWLASPRO {
     public partial class CreateUser {
         
         /// <summary>
+        /// Popup control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::DLWLASPRO.UserControls.Popup Popup;
+        
+        /// <summary>
         /// CreateAdmin control.
         /// </summary>
         /// <remarks>

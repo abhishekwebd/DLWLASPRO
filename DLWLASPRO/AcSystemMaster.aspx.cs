@@ -87,7 +87,7 @@ namespace DLWLASPRO
                 HiddenField code = (HiddenField)row.Cells[0].FindControl("Code");
                 CheckBox chk = (CheckBox)row.Cells[0].FindControl("chkDeactive");
                 if (chk.Checked == true) { isd = 1; } else { isd = 0; }
-                Fn_Ac_SystemMaster("U", AcSystem, int.Parse(code.Value), isd);
+                Fn_Ac_SystemMaster("U", AcSystem.ToUpper(), int.Parse(code.Value), isd);
                 grdAcSystem.EditIndex = -1;
                 _LoadGried();
             }

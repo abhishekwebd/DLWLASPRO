@@ -141,6 +141,7 @@
     <Content Include="UserControls\CAB_Mgmt.ascx" />
     <Content Include="UserControls\CreateAdmin.ascx" />
     <Content Include="UserControls\CreateOperator.ascx" />
+    <Content Include="UserControls\Popup.ascx" />
     <Content Include="vendor\animate\animate.css" />
     <Content Include="vendor\animsition\css\animsition.css" />
     <Content Include="vendor\animsition\css\animsition.min.css" />
@@ -293,6 +294,13 @@
     </Compile>
     <Compile Include="UserControls\CreateOperator.ascx.designer.cs">
       <DependentUpon>CreateOperator.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\Popup.ascx.cs">
+      <DependentUpon>Popup.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControls\Popup.ascx.designer.cs">
+      <DependentUpon>Popup.ascx</DependentUpon>
     </Compile>
     <Compile Include="WCFS\Iwcf_CreateOperator.cs" />
     <Compile Include="WCFS\wcf_CreateOperator.svc.cs">
